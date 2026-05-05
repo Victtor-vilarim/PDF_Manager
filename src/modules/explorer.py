@@ -1,63 +1,70 @@
-import os
+from pathlib import Path
 
 
 class Explorer:
-    def __init__(self):
-        self.root: str = os.environ['USERPROFILE']
-        self._path = None
+    def __init__(self, *, root: Path | str | None = None):
+        self.root = Path(root) if root else Path.home()
+        self._wd = self.root
+        self._selected = None
 
     @property
-    def path(self):
-        return self._path
-
-    @path.setter
-    def path(self, value):
-        self._path = value
-
-    def to_root(self):
+    def wd(self):
         """
-        Muda o diretório de trabalho para a 'pasta raiz.'
+        Retorna o diretório atual
         """
-        os.chdir(self.root)
+        return self._wd
 
-    @staticmethod
-    def cd(value: str = None) -> str | None:
+    def to_root(self) -> None:
         """
-        Exibe o nome da pasta ou altera a pasta atual.
+        Retorna o diretório de trabalho para a pasta raiz.
+        """
+        self._wd = self.root
+
+    def cd(self, value: str | Path | None = None) -> Path:
+        """
+        Exibe o nome da pasta ou altera a pasta de trabalho.
         cd + '' → exibe
         cd + .. → volta
         cd + pasta → altera
         """
         if value is None:
-            return os.getcwd()
+            return self._wd
+
         if value == '..':
-            return os.chdir(os.path.split(os.getcwd())[0])
-        if os.path.exists(os.path.join(os.getcwd(), value)):
-            return os.chdir(value)
-        raise FileNotFoundError(f'\'{os.path.join(os.getcwd(), value)}\' não existe')
+            self._wd = self._wd.parent
+            return self._wd
+
+        target = self._wd / value
+        if target.is_dir() and target.exists():
+            self._wd = target
+            return self._wd
+
+        raise FileNotFoundError(f'{target} não existe')
 
     def listdir(self) -> list[str]:
         """
         Lista os arquivos da pasta de trabalho.
         """
-        return os.listdir(self.cd())
+        return [a.name for a in self._wd.iterdir()]
 
-    def move(self, src: str) -> None | str:
+    def move(self, src: str | Path) -> None | str:
         """
         Move/renomeia o arquivo selecionado.
         Formas recomendadas:
         move ... <enter> to ...
         rename [nome_antigo] <enter> to [nome_novo]
         """
-        if os.path.exists(os.path.join(self.cd(), src)):
-            if self.path is None:
-                self._path = os.path.join(self.cd(), src)
-                self.to_root()
-                return None
+        target = self._wd / src
 
-        os.rename(self.path, os.path.join(self.cd(), src))
-        self.path = None
-        return None
+        if self._selected is None:
+            if not target.exists():
+                raise FileNotFoundError(f'{target} não existe')
+            self._selected = target
+            self.to_root()
+            return
+
+        self._selected.rename(target)
+        self._selected = None
 
     rename = move
     to = move
