@@ -1,7 +1,7 @@
 import pytest
 import pypdf
 
-from modules import PDFProcessor
+from pdf_manager.modules import PDFProcessor
 
 
 def test_merge(tmp_path):
@@ -96,7 +96,7 @@ def test_list_img(tmp_path):
     with open(file_, 'wb') as pdf_file:
         writer.write(pdf_file)
 
-    imgs = list(processor.list_img(file_))
+    imgs = list(processor.listimg(file_))
     assert imgs == []
 
 
@@ -110,7 +110,7 @@ def test_extract_img_error(tmp_path):
         writer.write(pdf_file)
 
     with pytest.raises(FileNotFoundError):
-        processor.extract_img(file_)
+        processor.extractimg(file_)
 
 
 def test_extract_text(tmp_path):
@@ -121,6 +121,6 @@ def test_extract_text(tmp_path):
     with open(file_, 'wb') as pdf_file:
         writer.write(pdf_file)
 
-    processor.extract_txt(file_)
+    processor.extracttxt(file_)
 
     assert (tmp_path / 'extracted_text.txt').exists()

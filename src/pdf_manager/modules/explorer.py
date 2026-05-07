@@ -51,7 +51,7 @@ class Explorer:
         """
         Move/renomeia o arquivo selecionado.
         Formas recomendadas:
-        move ... <enter> to ...
+        move [nome do arquivo] <enter> to [nome do arquivo]
         rename [nome_antigo] <enter> to [nome_novo]
         """
         target = self._wd / src
@@ -62,6 +62,9 @@ class Explorer:
             self._selected = target
             self.to_root()
             return
+
+        if target.exists():
+            raise ValueError(f'{target} não é uma entrada válida')
 
         self._selected.rename(target)
         self._selected = None

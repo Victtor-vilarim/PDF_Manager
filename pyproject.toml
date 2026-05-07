@@ -1,0 +1,23 @@
+[project]
+name = 'pdf_manager'
+version = "1.0.dev1"
+description = 'Um simples gerenciador de arquivo tipo PDF usando pypdf'
+authors = [{ name = 'Victtor Vilarim' }]
+
+dependencies = [
+    'pypdf',
+    'colorama'
+]
+
+readme = 'README.md'
+
+keywords = ['Testing', 'PDF', 'File Managers']
+
+classifiers = [
+    'Development Status :: 1 - Planning',
+    'Intended Audience :: Other Audience',
+    'Natural Language :: Portuguese (Brazilian)',
+]
+
+[project.optional-dependencies]
+test = 'pytest'

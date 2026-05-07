@@ -1,2 +1,10 @@
+# venv
+/.venv/
+
+# python
 /.idea
 *.pyc
+
+# testes
+/tests/__pycache__
+/src/pdf_manager.egg-info

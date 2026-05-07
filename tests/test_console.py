@@ -1,6 +1,6 @@
 import pytest
 
-from modules import Console
+from pdf_manager.modules import Console
 
 
 def test_help():
