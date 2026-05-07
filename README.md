@@ -9,5 +9,4 @@ feitas em um determinado tempo ou limite
 na quantidade de folhas por tarefa, ou ainda
 limite no tamanho do arquivo final.
 Por isso o programa dá ao usuário uma maior
-liberdade quando comparado com
-outras opções!
+liberdade!
