@@ -23,7 +23,7 @@ class Explorer:
     def cd(self, value: str | Path | None = None) -> Path:
         """
         Exibe o nome da pasta ou altera a pasta de trabalho.
-        cd + '' → exibe
+        cd → exibe
         cd + .. → volta
         cd + pasta → altera
         """
@@ -51,8 +51,8 @@ class Explorer:
         """
         Move/renomeia o arquivo selecionado.
         Formas recomendadas:
-        move [nome do arquivo] <enter> to [nome do arquivo]
-        rename [nome_antigo] <enter> to [nome_novo]
+        move [nome do arquivo].pdf <enter> to [nome do arquivo].pdf
+        rename [nome_antigo].pdf <enter> to [nome_novo].pdf
         """
         target = self._wd / src
 

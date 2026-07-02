@@ -8,6 +8,7 @@ class Console(PDFProcessor):
     def help(self, value: str) -> str | None:
         """
         Fornece informações sobre um comando.
+        Exemplo: help + [comando]
         """
         if hasattr(self, value):
             attr_ = getattr(self, value)

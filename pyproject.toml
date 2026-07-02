@@ -1,11 +1,12 @@
 [project]
 name = 'pdf_manager'
 version = "1.0.dev1"
-description = 'Um simples gerenciador de arquivo tipo PDF usando pypdf'
+description = 'Um simples manipulador de arquivos tipo PDF.'
 authors = [{ name = 'Victtor Vilarim' }]
 
 dependencies = [
     'pypdf',
+    'pypdf[image]',
     'colorama'
 ]
 
