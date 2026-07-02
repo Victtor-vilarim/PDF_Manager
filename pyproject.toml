@@ -1,6 +1,6 @@
 [project]
 name = 'pdf_manager'
-version = "1.0.dev1"
+version = "1.0a1.dev1"
 description = 'Um simples manipulador de arquivos tipo PDF.'
 authors = [{ name = 'Victtor Vilarim' }]
 
