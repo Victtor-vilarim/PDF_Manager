@@ -1,0 +1,64 @@
+{% extends 'global/index.html' %}
+{% block content %}
+<div class="tool-page-header">
+
+    <h2>Extrair</h2>
+
+    <p>
+        Selecione a imagem que deseja extrair.
+    </p>
+
+</div>
+
+
+<section class="images-page">
+
+    <div class="images-page-header">
+        <h2>Imagens extraídas</h2>
+
+        <p>
+            Clique em uma imagem para fazer o download.
+        </p>
+    </div>
+
+    <div class="image-list">
+    {% for img in context.imgs %}
+
+        <a href="{{url_for('.download_img', img_name=img.img.name)}}"
+           class="image-item"
+           download>
+
+            <!--            <div class="image-preview">-->
+            <!--                <img src="/preview/image_1.png"-->
+            <!--                     alt="Imagem 1">-->
+            <!--            </div>-->
+
+            <div class="image-info">
+
+                <span class="image-name">
+                    {{img.img.name}}
+                </span>
+
+                <div class="image-details">
+
+                    <span class="image-detail">
+                        Página <strong>{{img.page_n + 1}} </strong>
+                    </span>
+
+                    <span class="image-detail">
+                        Imagem <strong>{{img.img_n + 1}} </strong>
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="download-icon">
+                ↓
+            </div>
+
+        </a>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

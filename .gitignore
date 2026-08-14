@@ -7,4 +7,6 @@
 
 # testes
 /tests/__pycache__
-/src/pdf_manager.egg-info
+
+# package
+/pdf_manager.egg-info

@@ -1,0 +1,50 @@
+{% extends 'global/index.html' %}
+{% block content %}
+<div class="tool-page-header">
+
+    <h2>Mesclar</h2>
+
+    <p>
+        Selecione os arquivos que deseja mesclar.
+    </p>
+
+</div>
+
+
+<article>
+
+
+    <form
+            class="pdf-form"
+            action="/merge"
+            method="post"
+            enctype="multipart/form-data"
+            target="_blank"
+    >
+
+        <div class="file-area">
+
+            <label for="pdf-file">
+                Selecione seu arquivo PDF
+            </label>
+
+            <input
+                    id="pdf-file"
+                    type="file"
+                    name="file"
+                    accept=".pdf"
+                    data-allows-drop="true"
+                    multiple
+            >
+
+        </div>
+
+        <input
+                class="submit-button"
+                type="submit"
+                value="Mesclar"
+        >
+
+    </form>
+</article>
+{% endblock content %}

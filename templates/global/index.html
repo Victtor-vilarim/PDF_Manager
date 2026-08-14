@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+{% include 'partials/head.html' %}
+
+<body>
+
+<header>
+
+    <a href="/" class="logo">
+        <span class="logo-icon">P</span>
+        <span>PDF Manager</span>
+    </a>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="/">Home</a>
+            </li>
+
+            <li>
+                <a href="/merge">Mesclar</a>
+            </li>
+
+            <li>
+                <a href="/extract">Extrair imagem</a>
+            </li>
+
+            <li>
+                <a href="/remove">Remover página</a>
+            </li>
+        </ul>
+    </nav>
+
+</header>
+
+
+<main>
+
+    {% if context.is_index %}
+
+    <section class="hero">
+
+        <h2>
+            Manipule seus PDFs de forma
+            <span>simples e rápida</span>
+        </h2>
+
+        <p>
+            Ferramentas para facilitar suas tarefas com documentos PDF.
+        </p>
+
+        <a href="/merge" class="hero-button">
+            Começar agora
+        </a>
+
+    </section>
+
+
+    <section class="tools">
+
+        <div class="tools-title">
+            Ferramentas
+        </div>
+
+        <div class="tool-grid">
+
+            <a href="/merge" class="tool-card">
+                <div class="tool-icon">+</div>
+
+                <h3>Mesclar PDFs</h3>
+
+                <p>
+                    Una vários arquivos PDF em um único documento.
+                </p>
+            </a>
+
+
+            <a href="/extract" class="tool-card">
+                <div class="tool-icon">▧</div>
+
+                <h3>Extrair imagens</h3>
+
+                <p>
+                    Extraia imagens presentes nos seus documentos PDF.
+                </p>
+            </a>
+
+
+            <a href="/remove" class="tool-card">
+                <div class="tool-icon">×</div>
+
+                <h3>Remover páginas</h3>
+
+                <p>
+                    Remova páginas específicas de um documento PDF.
+                </p>
+            </a>
+
+        </div>
+
+    </section>
+
+    {% else %}
+    <section class="tool-page">
+        {% block content %}
+        {% endblock content %}
+    </section>
+
+    {% endif %}
+
+</main>
+
+
+<footer>
+
+    <span>
+        <a
+                href="https://www.linkedin.com/in/joao-victtor-vilarim-de-melo"
+                target="_blank"
+        >
+            João Victtor
+        </a>
+    </span>
+
+    <span>
+        <a
+                href="https://flask.palletsprojects.com/en/stable/"
+                target="_blank"
+        >
+            Powered by Flask
+        </a>
+    </span>
+
+</footer>
+
+</body>
+</html>

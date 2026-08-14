@@ -1,11 +1,33 @@
 # PDF Manager
 
-A ideia surgiu por uma necessidade que vi
-ao precisar trabalhar com o tipo .pdf visto
-que as ferramentas que _podiam ser acessadas_
-para mesclar arquivos normalmente
-possuem um limite de tarefas que podem ser
-feitas em um determinado tempo ou limite
-na quantidade de folhas por tarefa, ou ainda
-limite no tamanho do arquivo final.
----
+- As ferramentas _**disponíveis**_ para mesclagem
+de PDFs possuiam limites de uso (tamanho
+do arquivo final, quantidade de folhas 
+ou tarefas por hora).
+- Construir uma aplicação que oferecesse os
+serviços necessários para tarefas envolvendo
+PDFs (mesclar, extrair, remover)
+- Criei um simples programa como protótipo
+para as primeiras funcionalidades pretendidas,
+descobrindo assim algumas limitações
+que poderiam ser enfrentadas em um ambiente
+mais controlado. Mudei então a abordagem 
+para uma aplicação web que removia a principal 
+limitação: utilizar o programa sem poder
+instalar o Python ou .exe na máquina do 
+usuário.
+
+O objetivo é utilizar um SBC como AP
+para a aplicação em rede local, possibilitando
+assim o uso em vários ambientes.
+
+Além de novas funcionalidades, questões
+de segurança estão previstas para próximas
+versões.
+
+Obs:
+- Inspiração visual: https://www.sejda.com
+- Não fiz o CSS
+
+
+

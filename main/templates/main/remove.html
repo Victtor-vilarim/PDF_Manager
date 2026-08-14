@@ -1,0 +1,53 @@
+{% extends 'global/index.html' %}
+{% block content %}
+<div class="tool-page-header">
+
+    <h2>Remover</h2>
+
+    <p>
+        Selecione o arquivo que deseja remover.
+    </p>
+
+</div>
+
+
+<article>
+
+    <form
+            class="pdf-form"
+            action="/remove"
+            method="post"
+            enctype=multipart/form-data
+            target="_blank">
+
+
+        <div class="file-area">
+            <label for="pdf-file">
+                Selecione seu arquivo PDF
+            </label>
+            <input
+                    id="pdf-file"
+                    type="file"
+                    name="file"
+                    accept=".pdf"
+                    data-allows-drop="true">
+
+            <label for="page_number">
+                Página que será removida
+            </label>
+            <input
+                    id="page_number"
+                    type="number"
+                    name="page_number"
+            >
+
+        </div>
+
+        <input
+                class='submit-button'
+                type='submit'
+                value='Remover'
+        >
+    </form>
+</article>
+{% endblock content %}

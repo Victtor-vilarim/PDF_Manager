@@ -1,24 +1,28 @@
 [project]
-name = 'pdf_manager'
-version = "1.0a1.dev1"
-description = 'Um simples manipulador de arquivos tipo PDF.'
-authors = [{ name = 'Victtor Vilarim' }]
+name = "pdf_manager"
+version = "2.0.0"
+description = "Um simples manipulador de arquivos tipo PDF."
+authors = [{ name = "Victtor Vilarim" }]
 
 dependencies = [
-    'pypdf',
-    'pypdf[image]',
-    'colorama'
+    "pypdf",
+    "pypdf[image]",
+    "colorama",
+    "flask>=3.1.3",
+    "pillow>=12.3.0",
 ]
 
-readme = 'README.md'
-
-keywords = ['Testing', 'PDF', 'File Managers']
-
-classifiers = [
-    'Development Status :: 1 - Planning',
-    'Intended Audience :: Other Audience',
-    'Natural Language :: Portuguese (Brazilian)',
-]
+readme = "README.md"
 
 [project.optional-dependencies]
-test = ['pytest']
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "."}
+
+[tool.setuptools.packages.find]
+where = ["."]

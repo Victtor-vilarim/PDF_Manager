@@ -1,0 +1,47 @@
+{% extends 'global/index.html' %}
+{% block content %}
+<div class="tool-page-header">
+
+    <h2>Extrair</h2>
+
+    <p>
+        Selecione o arquivo em que deseja extrair uma imagem.
+    </p>
+
+</div>
+
+<article>
+    <form
+            class="pdf-form"
+            action="/extract"
+            method="post"
+            enctype="multipart/form-data"
+            target="_self"
+    >
+
+        <div class="file-area">
+
+            <label for="pdf-file">
+                Selecione seu arquivo PDF
+            </label>
+
+            <input
+                    id="pdf-file"
+                    type="file"
+                    name="file"
+                    accept=".pdf"
+                    data-allows-drop="true"
+            >
+
+        </div>
+
+        <input
+                class="submit-button"
+                type="submit"
+                value="Enviar"
+        >
+
+    </form>
+</article>
+
+{% endblock content %}
