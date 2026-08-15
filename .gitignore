@@ -10,3 +10,6 @@
 
 # package
 /pdf_manager.egg-info
+
+# media
+media/
